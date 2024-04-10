@@ -90,6 +90,7 @@ h4 {
 .card .imgBox img {
     min-width: 50px;
     max-height: 400px;
+    cursor: pointer; /* Add cursor pointer */
 }
 
 .card:hover .imgBox {
@@ -134,14 +135,14 @@ audio {
 </style>
 </head>
 <body>
-<audio autoplay loop>
+<audio autoplay loop id="bgAudio">
   <source src="https://h.top4top.io/m_3021w3p5t1.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 <div class="card">
-    <div class="imgBox">
+    <div class="imgBox" onclick="playAudio()">
         <div class="bark"></div>
-        <a href="Card" onclick="document.getElementById('audio').play()">
+        <a href="Card">
             <img src="Card_1.jpg" alt="kartu-ucapan-idul-fitri" border="0">
         </a>
     </div>
@@ -160,8 +161,16 @@ audio {
         <p>"irawan, sherly, fariz, luthfi, faqih"</p> 
     </div> 
 </div>
-<audio id="audio" src="https://h.top4top.io/m_3021w3p5t1.mp3" loop></audio>
-
-</div>
+<script>
+function playAudio() {
+  var audio = document.getElementById("bgAudio");
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+}
+</script>
 </body>
 </html>
